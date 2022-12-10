@@ -18,8 +18,18 @@ todo_list = ["Go shopping", "Clean Room", "Program R4-P17 Voice Assistant"]
 Mappings and Functions:
 If a mapping recognizes a specific command or request, it will pass an appropriate function
 """
-def some_function():
-    print("Hello World!")
+def create_note():
+    # Get the speech recognizer
+    global recognizer
+
+    # Have speaker request more info
+    speaker.say("What do you want to write onto your list?")
+    speaker.runAndWait() # Wait for user input
+
+    # Prevent program from failing - Loop until the program understands the command
+    done = False
+
+    
 
 mappings = {"greeting": some_function}
 
