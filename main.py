@@ -11,3 +11,6 @@ recognizer = speech_recognition.Recognizer()
 speaker = tts.init()
 speaker.setProperty('rate', 150) # 150 is a good average rate
 
+# Create TODO list
+todo_list = ["Go shopping", "Clean Room", "Program R4-P17 Voice Assistant"]
+
