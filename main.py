@@ -29,7 +29,24 @@ def create_note():
     # Prevent program from failing - Loop until the program understands the command
     done = False
 
-    
+    while not done:
+        # Try processing user input
+        try:
+            # Set microphone
+            with speech_recognition.Microphone() as mic:
+                # Block out ambient noise
+                recognizer.adjust_for_ambient_noise(mic, duration=0.2)
+                # Get the user input
+                audio = recognizer.listen(mic)
+
+                # Decipher user input
+                note = recognizer.recognize_google(audio)
+                # Set text to lowercase
+                note = note.lower()
+
+                # Save note to specific file
+                
+
 
 mappings = {"greeting": some_function}
 
