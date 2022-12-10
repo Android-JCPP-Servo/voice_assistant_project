@@ -14,3 +14,9 @@ speaker.setProperty('rate', 150) # 150 is a good average rate
 # Create TODO list
 todo_list = ["Go shopping", "Clean Room", "Program R4-P17 Voice Assistant"]
 
+# Set up assistant
+assistant = GenericAssistant('intents.json')
+assistant.train_model()
+
+# Test assistant request
+# assistant.request("How are you?")
