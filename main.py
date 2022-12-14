@@ -110,7 +110,21 @@ def show_todos():
 
     for item in todo_list:
         speaker.say(item)
-        speaker.runAndWait()
+    speaker.runAndWait()
+
+
+# Method for getting the greeting
+def hello():
+    speaker.say("Hello! What can I do for you?")
+    speaker.runAndWait()
+
+
+# Method for quitting the program
+def quit():
+    speaker.say("Bye!")
+    speaker.runAndWait()
+    sys.exit(0)
+
 
 mappings = {"greeting": some_function}
 
