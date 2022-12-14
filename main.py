@@ -66,6 +66,40 @@ def create_note():
             speaker.say("I didn't understand you! Please try again!")
             speaker.runAndWait()
 
+# METHOD FOR ADD_TODO
+def add_todo():
+    
+    global recognizer
+
+    speaker.say("What to do would you like to add?")
+    speaker.runAndWait()
+
+    done = False
+
+    while not done:
+
+        try:
+        
+            with speech_recognition.Microphone() as mic:
+
+                recognizer.adjust_for_ambient_noise(mic, duration=0.2)
+                audio = recognizer.listen(mic)
+
+                item = recognizer.recognize_google(audio)
+                item = item.lower()
+
+                todo_list.append(item)
+                done = True
+
+                speaker.say(f"I added {item} to the to do list!")
+                speaker.runAndWait()
+
+        except speech_recognition.UnknownValueError:
+            recognizer = speech_recognition.Recognizer()
+            # State the model didn't recognize the audio
+            speaker.say("I didn't understand you! Please try again!")
+            speaker.runAndWait()
+
 mappings = {"greeting": some_function}
 
 # Set up assistant
