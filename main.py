@@ -18,6 +18,7 @@ todo_list = ["Go shopping", "Clean Room", "Program R4-P17 Voice Assistant"]
 Mappings and Functions:
 If a mapping recognizes a specific command or request, it will pass an appropriate function
 """
+# Method for creating note
 def create_note():
     # Get the speech recognizer
     global recognizer
@@ -66,6 +67,7 @@ def create_note():
             speaker.say("I didn't understand you! Please try again!")
             speaker.runAndWait()
 
+
 # METHOD FOR ADD_TODO
 def add_todo():
     
@@ -99,6 +101,16 @@ def add_todo():
             # State the model didn't recognize the audio
             speaker.say("I didn't understand you! Please try again!")
             speaker.runAndWait()
+
+
+# Method for showing TODO list
+def show_todos():
+
+    speaker.say("The items on your to do list are")
+
+    for item in todo_list:
+        speaker.say(item)
+        speaker.runAndWait()
 
 mappings = {"greeting": some_function}
 
