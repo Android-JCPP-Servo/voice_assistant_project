@@ -126,7 +126,13 @@ def quit():
     sys.exit(0)
 
 
-mappings = {"greeting": some_function}
+mappings = {
+    "greeting": hello,
+    "create_note": create_note,
+    "add_todo": add_todo,
+    "show_todo": show_todos,
+    "exit": quit
+}
 
 # Set up assistant
 assistant = GenericAssistant('intents.json', intent_methods=mappings)
