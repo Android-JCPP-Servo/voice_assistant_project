@@ -2,5 +2,5 @@
 from playsound import playsound
 
 # Play .WAV file
-playsound('./millennium-falcon-blaster.wav')
+playsound('./r4_response.wav')
 print('Playing sound using playsound()')
