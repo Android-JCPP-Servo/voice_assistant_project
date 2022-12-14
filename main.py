@@ -45,7 +45,20 @@ def create_note():
                 note = note.lower()
 
                 # Save note to specific file
-                
+                speaker.say('Choose a filename!')
+                speaker.runAndWait()
+
+                recognizer.adjust_for_ambient_noise(mic, duration=0.2)
+                audio = recognizer.listen(mic)
+
+                # Get filename and set it to lowercase
+                filename = recognizer.recognize_google(audio)
+                filename = filename.lower()
+
+            with open(filename, 'r') as f:
+                f.write(note)
+                done = True
+                speaker.say(f"I successfully created the note {filename}!")
 
 
 mappings = {"greeting": some_function}
