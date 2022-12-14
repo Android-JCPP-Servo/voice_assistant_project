@@ -60,6 +60,11 @@ def create_note():
                 done = True
                 speaker.say(f"I successfully created the note {filename}!")
 
+        except speech_recognition.UnknownValueError:
+            recognizer = speech_recognition.Recognizer()
+            # State the model didn't recognize the audio
+            speaker.say("I didn't understand you! Please try again!")
+            speaker.runAndWait()
 
 mappings = {"greeting": some_function}
 
