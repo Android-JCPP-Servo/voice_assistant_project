@@ -42,8 +42,13 @@ class Assistant:
 
     # Method for creating a file
     def create_file(self):
-        # Temporarily pass
-        pass
+        
+        # Initialize file
+        with open("somefile.txt", "w") as f:
+
+            # Write message
+            f.write('HELLO WORLD!')
+    
 
     # Method for run_assistant
     def run_assistant(self):
