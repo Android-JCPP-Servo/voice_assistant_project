@@ -60,7 +60,7 @@ class Assistant:
         with open("somefile.txt", "w") as f:
 
             # Write message
-            f.write('HELLO WORLD!')
+            f.write('HELLO WORLD!\n')
 
 
     # Method for editing a current file
@@ -96,7 +96,7 @@ class Assistant:
                     with open("somefile.txt", "w") as f:
 
                         # Write to the file
-                        f.write(text)
+                        f.write(text, '\n')
 
                         # Finish operation
                         done = True
