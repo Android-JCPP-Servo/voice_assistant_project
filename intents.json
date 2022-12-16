@@ -21,9 +21,9 @@
             "responses": []
         },
         {
-            "tag": "star_wars",
+            "tag": "star wars",
             "patterns": ["What is Star Wars?", "Tell me about Star Wars"],
-            "responses": []
+            "responses": ["Star Wars is Andy's favorite movie series. You should watch it if you haven't already!"]
         },
         {
             "tag": "exit",
