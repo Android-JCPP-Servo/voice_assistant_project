@@ -19,6 +19,21 @@
             "tag": "church",
             "patterns": ["Go to church", "Let's go to church", "Gotta pay my tithing!"],
             "responses": []
-        }
+        },
+        {
+            "tag": "star wars",
+            "patterns": ["What is Star Wars?", "Tell me about Star Wars"],
+            "responses": ["Star Wars is Andy's favorite movie series. You should watch it if you haven't already!"]
+        },
+        {
+            "tag": "file",
+            "patterns": ["Create a file", "Write my file", "Type a new file", "Create new file"],
+            "responses": []
+        },
+        {
+            "tag": "delete",
+            "patterns": ["Delete a file", "Delete my file"],
+            "responses": []
+        },
     ]
 }
