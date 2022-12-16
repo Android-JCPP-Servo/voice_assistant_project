@@ -53,7 +53,15 @@ class Assistant:
     Methods for handling workday tasks
     """
     
-    
+    # Method for opening specific typical workday links
+    def work_assistant(self):
+
+        # Play R4-P17 response
+        droid_res = AudioSegment.from_wav("./sound_effects/p17_res.wav")
+        play(droid_res)
+
+        
+
 
     """
     Methods for handling simple write-to-file tasks
