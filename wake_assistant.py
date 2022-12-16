@@ -49,6 +49,16 @@ class Assistant:
         self.root.mainloop()
 
 
+    """
+    Methods for handling workday tasks
+    """
+    
+    
+
+    """
+    Methods for handling simple write-to-file tasks
+    """
+
     # Method for creating a file
     def create_file(self):
 
