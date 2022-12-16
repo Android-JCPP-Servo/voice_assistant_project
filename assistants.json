@@ -9,6 +9,14 @@
             "tag": "work",
             "patterns": ["Take me to work", "Open up work for me", "Pull up work"],
             "responses": []
+        },
+        {
+            "tag": "youtube",
+            "patterns": ["Pull up some music", "Open YouTube", "Let's listen to YouTube"],
+            "responses": []
+        },
+        {
+            "tag": "church"
         }
     ]
 }
