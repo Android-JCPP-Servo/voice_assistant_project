@@ -26,6 +26,11 @@
             "responses": ["Star Wars is Andy's favorite movie series. You should watch it if you haven't already!"]
         },
         {
+            "tag": "file",
+            "patterns": ["Create a file", "Write my file", "Type a new file", "Create new file"],
+            "responses": []
+        },
+        {
             "tag": "exit",
             "patterns": ["Bye!", "Quit!", "Stop!", "Exit!", "Goodbye", "I have to go!"],
             "responses": []
