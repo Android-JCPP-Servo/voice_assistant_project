@@ -1,0 +1,14 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": ["Howdy", "Hello", "Sup?", "Hi", "How are you doing?"],
+            "responses": ["Hello, Sir!", "Howdy!", "What can I do for you?"]
+        },
+        {
+            "tag": "work",
+            "patterns": ["Take me to work", "Open up work for me", "Pull up work"],
+            "responses": []
+        }
+    ]
+}
