@@ -6,16 +6,17 @@ import tkinter as tk
 # Import external modules
 import speech_recognition
 import pyttsx3 as tts
+from playsound import playsound
 
 # Import custom modules
 from neuralintents import GenericAssistant
 
 # Create an assistant class
 class Assistant:
-
+    
     # Provide simple constructor
     def __init__(self):
-
+    
         # Initialize recognizer with speech recognition
         self.recognizer = speech_recognition.Recognizer()
 
@@ -48,7 +49,7 @@ class Assistant:
     def run_assistant(self):
         # Run in a separate thread
         while True:
-
+    
             try:
 
                 # Set microphone
@@ -66,9 +67,13 @@ class Assistant:
 
                     # Activate only if specific text in thread
                     if "r 4" in text:
-
+    
                         # Set color
                         self.label.config(fg="red")
+
+
+                        # Play .WAV file
+                        playsound('./sound_effects/r4_response.wav')
 
                         # Get the command
                         audio = self.recognizer.listen(mic)
