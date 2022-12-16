@@ -8,27 +8,27 @@
         {
             "tag": "create_note",
             "patterns": ["Please create a new note", "New note", "Create a note"],
-            "responses": [""]
+            "responses": []
         },
         {
             "tag": "add_todo",
             "patterns": ["Add a todo", "I want to add a new todo", "Add to my todo list"],
-            "responses": [""]
+            "responses": []
         },
         {
             "tag": "show_todos",
             "patterns": ["Show my todo list", "I want to see my todo list", "What's on my todo list?"],
-            "responses": [""]
+            "responses": []
         },
         {
             "tag": "star_wars",
             "patterns": ["What is Star Wars?", "Tell me about Star Wars"],
-            "responses": [""]
+            "responses": []
         },
         {
             "tag": "exit",
             "patterns": ["Bye!", "Quit!", "Stop!", "Exit!", "Goodbye", "I have to go!"],
-            "responses": [""]
+            "responses": []
         }
     ]
 }
