@@ -73,7 +73,7 @@ class Assistant:
 
 
                         # Play .WAV file
-                        playsound('./sound_effects/r4_response.wav')
+                        playsound('./sound_effects/r4_greeting.wav')
 
                         # Get the command
                         audio = self.recognizer.listen(mic)
