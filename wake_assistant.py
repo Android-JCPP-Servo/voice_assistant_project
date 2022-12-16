@@ -32,10 +32,47 @@ class Assistant:
         self.label = tk.Label(text="💿", font=("Arial", 120, "bold"))
         self.label.pack()
 
-        
+        # Listen for the audio
+        threading.Thread(target=self.run_assistant).start()
+
+        # Set main loop
+        self.root.mainloop()
+
 
     # Method for creating a file
     def create_file(self):
-
         # Temporarily pass
         pass
+
+    # Method for run_assistant
+    def run_assistant(self):
+        # Run in a separate thread
+        while True:
+
+            try:
+
+                # Set microphone
+                with speech_recognition.Microphone() as mic:
+
+                    # Remove ambient noise
+                    self.recognizer.adjust_for_ambient_noise(mic, duration=0.2)
+
+                    # Initialize the audio
+                    audio = self.recognizer.listen(mic)
+
+                    # Translate to text based on audio
+                    text = self.recognizer.recognize_google(audio)
+                    text = text.lower()
+
+                    # Activate only if specific text in thread
+                    if "R 4" in text:
+
+                        # Set color
+                        self.label.config(fg="red")
+
+                        # Get the command
+                        audio = self.recognizer.listen(mic)
+
+                        # Translate to text based on audio
+                        text = self.recognizer.recognize_google(audio)
+                        text = text.lower()
