@@ -71,7 +71,6 @@ class Assistant:
                         # Set color
                         self.label.config(fg="red")
 
-
                         # Play .WAV file
                         playsound('./sound_effects/r4_greeting.wav')
 
@@ -104,4 +103,15 @@ class Assistant:
                                 # If the response is not empty
                                 if response is not None:
 
+                                    # Respond...
                                     self.speaker.say(response)
+                                    self.speaker.runAndWait()
+
+                            # Reset color
+                            self.label.config(fg="black")
+            
+            except:
+
+                # Deactivate program
+                self.label.config(fg="black")
+                continue
