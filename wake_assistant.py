@@ -86,3 +86,17 @@ class Assistant:
                             self.speaker.stop()
                             self.root.destroy()
                             sys.exit(0)
+
+                        # If text IS NOT stop
+                        else:
+
+                            # Check if text is not empty
+                            if text is not None:
+
+                                # Set response
+                                response = self.assistant.request(text)
+
+                                # If the response is empty
+                                if response is None:
+
+                                    
