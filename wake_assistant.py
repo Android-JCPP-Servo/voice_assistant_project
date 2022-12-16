@@ -6,7 +6,10 @@ import tkinter as tk
 # Import external modules
 import speech_recognition
 import pyttsx3 as tts
-from playsound import playsound
+
+# Sound player
+from pydub import AudioSegment
+from pydub.playback import play
 
 # Import custom modules
 from neuralintents import GenericAssistant
@@ -42,7 +45,11 @@ class Assistant:
 
     # Method for creating a file
     def create_file(self):
-        
+
+        # Play R4-P17 response
+        droid_res = AudioSegment.from_wav("./sound_effects/p17_res.wav")
+        play(droid_res)
+
         # Initialize file
         with open("somefile.txt", "w") as f:
 
@@ -77,7 +84,8 @@ class Assistant:
                         self.label.config(fg="red")
 
                         # Play .WAV file
-                        # playsound('./sound_effects/r4_greeting.wav')
+                        droid_greet = AudioSegment.from_wav("./sound_effects/p17_greet.wav")
+                        play(droid_greet)
 
                         # Get the command
                         audio = self.recognizer.listen(mic)
@@ -107,6 +115,10 @@ class Assistant:
 
                                 # If the response is not empty
                                 if response is not None:
+
+                                    # Play R4-P17 response
+                                    droid_res = AudioSegment.from_wav("./sound_effects/p17_res.wav")
+                                    play(droid_res)
 
                                     # Respond...
                                     self.speaker.say(response)
