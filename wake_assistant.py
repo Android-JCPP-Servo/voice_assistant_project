@@ -62,6 +62,52 @@ class Assistant:
             f.write('HELLO WORLD!')
 
 
+    # Method for editing a current file
+    def edit_file(self):
+
+        # Play R4-P17 response
+        droid_res = AudioSegment.from_wav("./sound_effects/p17_res.wav")
+        play(droid_res)
+
+        # Print astromech translation
+        print("What would you like to add?")
+
+        done = False
+
+        while not done:
+
+            try:
+
+                # Set microphone
+                with speech_recognition.Microphone() as mic:
+
+                    # Remove ambient noise
+                    self.recognizer.adjust_for_ambient_noise(mic, duration=1.0)
+
+                    # Initialize the audio
+                    audio = self.recognizer.listen(mic)
+
+                    # Translate to text based on audio
+                    text = self.recognizer.recognize_google(audio)
+                    text = text.lower()
+
+                    # Initialize file
+                    with open("somefile.txt", "w") as f:
+
+                        # Write to the file
+                        f.write(text)
+
+                        # Finish operation
+                        done = True
+
+            except speech_recognition.UnknownValueError:
+
+                self.recognizer = speech_recognition.Recognizer()
+                # State the model didn't recognize the audio
+                self.speaker.say("I didn't understand you! Please try again!")
+                self.speaker.runAndWait()
+
+
     # Method for deleting file
     def delete_file(self):
 
