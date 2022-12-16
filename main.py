@@ -36,7 +36,7 @@ def create_note():
             # Set microphone
             with speech_recognition.Microphone() as mic:
                 # Block out ambient noise
-                recognizer.adjust_for_ambient_noise(mic, duration=0.2)
+                recognizer.adjust_for_ambient_noise(mic, duration=1.0)
                 # Get the user input
                 audio = recognizer.listen(mic)
 
@@ -49,7 +49,7 @@ def create_note():
                 speaker.say('Choose a filename!')
                 speaker.runAndWait()
 
-                recognizer.adjust_for_ambient_noise(mic, duration=0.2)
+                recognizer.adjust_for_ambient_noise(mic, duration=1.0)
                 audio = recognizer.listen(mic)
 
                 # Get filename and set it to lowercase
@@ -84,7 +84,7 @@ def add_todo():
         
             with speech_recognition.Microphone() as mic:
 
-                recognizer.adjust_for_ambient_noise(mic, duration=0.2)
+                recognizer.adjust_for_ambient_noise(mic, duration=1.0)
                 audio = recognizer.listen(mic)
 
                 item = recognizer.recognize_google(audio)
@@ -130,7 +130,7 @@ mappings = {
     "greeting": hello,
     "create_note": create_note,
     "add_todo": add_todo,
-    "show_todo": show_todos,
+    "show_todos": show_todos,
     "exit": quit
 }
 
@@ -142,7 +142,7 @@ assistant.train_model()
 while True:
     try:
         with speech_recognition.Microphone() as mic:
-            recognizer.adjust_for_ambient_noise(mic, duration=0.2)
+            recognizer.adjust_for_ambient_noise(mic, duration=1.0)
             audio = recognizer.listen(mic)
 
             message = recognizer.recognize_google(audio)
