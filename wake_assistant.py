@@ -25,7 +25,7 @@ class Assistant:
         self.speaker.setProperty("rate", 150)
 
         # Initialize assistant
-        self.assistant = GenericAssistant("intents.json", intent_methods={"file: self.create_file"})
+        self.assistant = GenericAssistant("intents.json", intent_methods={"file": self.create_file})
         self.assistant.train_model()
 
         # Implement graphical interface
@@ -61,7 +61,7 @@ class Assistant:
                 with speech_recognition.Microphone() as mic:
 
                     # Remove ambient noise
-                    self.recognizer.adjust_for_ambient_noise(mic, duration=0.2)
+                    self.recognizer.adjust_for_ambient_noise(mic, duration=1.0)
 
                     # Initialize the audio
                     audio = self.recognizer.listen(mic)
@@ -71,13 +71,13 @@ class Assistant:
                     text = text.lower()
 
                     # Activate only if specific text in thread
-                    if "r 4" in text:
+                    if "hey jack" in text:
     
                         # Set color
                         self.label.config(fg="red")
 
                         # Play .WAV file
-                        playsound('./sound_effects/r4_greeting.wav')
+                        # playsound('./sound_effects/r4_greeting.wav')
 
                         # Get the command
                         audio = self.recognizer.listen(mic)
