@@ -27,7 +27,12 @@ class Assistant:
         self.assistant = GenericAssistant("intents.json", intent_methods={"file: self.create_file"})
         self.assistant.train_model()
 
-        # 
+        # Implement graphical interface
+        self.root = tk.Tk()
+        self.label = tk.Label(text="💿", font=("Arial", 120, "bold"))
+        self.label.pack()
+
+        
 
     # Method for creating a file
     def create_file(self):
