@@ -65,7 +65,7 @@ class Assistant:
                     text = text.lower()
 
                     # Activate only if specific text in thread
-                    if "R 4" in text:
+                    if "r 4" in text:
 
                         # Set color
                         self.label.config(fg="red")
@@ -76,3 +76,13 @@ class Assistant:
                         # Translate to text based on audio
                         text = self.recognizer.recognize_google(audio)
                         text = text.lower()
+
+                        # Check if text is STOP
+                        if text == "stop":
+
+                            # Quit the program
+                            self.speaker.say("Goodbye!")
+                            self.speaker.runAndWait()
+                            self.speaker.stop()
+                            self.root.destroy()
+                            sys.exit(0)
