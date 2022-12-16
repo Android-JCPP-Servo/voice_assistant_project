@@ -96,7 +96,7 @@ class Assistant:
                                 # Set response
                                 response = self.assistant.request(text)
 
-                                # If the response is empty
-                                if response is None:
+                                # If the response is not empty
+                                if response is not None:
 
-                                    
+                                    self.speaker.say(response)
