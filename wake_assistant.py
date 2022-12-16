@@ -120,3 +120,6 @@ class Assistant:
                 # Deactivate program
                 self.label.config(fg="black")
                 continue
+
+# Create instance of assistant
+Assistant()
