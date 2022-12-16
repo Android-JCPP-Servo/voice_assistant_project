@@ -1,4 +1,5 @@
 # Import internal modules
+import os
 import sys
 import threading
 import tkinter as tk
@@ -28,7 +29,7 @@ class Assistant:
         self.speaker.setProperty("rate", 150)
 
         # Initialize assistant
-        self.assistant = GenericAssistant("intents.json", intent_methods={"file": self.create_file})
+        self.assistant = GenericAssistant("intents.json", intent_methods={"file": self.create_file, "delete": self.delete_file})
         self.assistant.train_model()
 
         # Implement graphical interface
@@ -55,6 +56,19 @@ class Assistant:
 
             # Write message
             f.write('HELLO WORLD!')
+
+
+    # Method for deleting file
+    def delete_file(self):
+
+        # Play R4-P17 response
+        droid_res = AudioSegment.from_wav("./sound_effects/p17_res.wav")
+        play(droid_res)
+
+        if os.path.exists("somefile.txt"):
+            os.remove("somefile.txt")
+        else:
+            self.speaker.say("The file doesn't exist")
     
 
     # Method for run_assistant
