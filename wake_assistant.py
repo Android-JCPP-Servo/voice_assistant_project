@@ -30,7 +30,8 @@ class Assistant:
 
         # Initialize assistant
         mappings = {
-            "file": self.create_file, 
+            "file": self.create_file,
+            "edit": self.edit_file,
             "delete": self.delete_file
         }
         self.assistant = GenericAssistant("assistants.json", intent_methods=mappings)
