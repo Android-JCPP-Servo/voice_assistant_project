@@ -16,7 +16,9 @@
             "responses": []
         },
         {
-            "tag": "church"
+            "tag": "church",
+            "patterns": ["Go to church", "Let's go to church", "Gotta pay my tithing!"],
+            "responses": []
         }
     ]
 }
