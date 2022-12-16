@@ -29,7 +29,11 @@ class Assistant:
         self.speaker.setProperty("rate", 150)
 
         # Initialize assistant
-        self.assistant = GenericAssistant("intents.json", intent_methods={"file": self.create_file, "delete": self.delete_file})
+        mappings = {
+            "file": self.create_file, 
+            "delete": self.delete_file
+        }
+        self.assistant = GenericAssistant("assistants.json", intent_methods=mappings)
         self.assistant.train_model()
 
         # Implement graphical interface
