@@ -21,6 +21,11 @@
             "responses": [""]
         },
         {
+            "tag": "star_wars",
+            "patterns": ["What is Star Wars?", "Tell me about Star Wars"],
+            "responses": [""]
+        },
+        {
             "tag": "exit",
             "patterns": ["Bye!", "Quit!", "Stop!", "Exit!", "Goodbye", "I have to go!"],
             "responses": [""]
