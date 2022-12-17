@@ -61,10 +61,17 @@ class Assistant:
     """
     Method for playing audio to simplify Separation of Concerns
     """
-    def play_sound(self):
+    def play_response(self):
 
         # Play R4-P17 response
         droid_res = AudioSegment.from_wav("./sound_effects/p17_res.wav")
+        play(droid_res)
+    
+
+    def play_command(self):
+
+        # Play R4-P17 command
+        droid_res = AudioSegment.from_wav("./sound_effects/p17_command.wav")
         play(droid_res)
 
 
@@ -79,7 +86,7 @@ class Assistant:
         webbrowser.open_new(self.work_url)
 
         # Play R4-P17 response
-        self.play_sound()
+        self.play_response()
 
 
     # Method for opening YouTube
@@ -89,7 +96,7 @@ class Assistant:
         webbrowser.open_new(self.music_url)
 
         # Play R4-P17 response
-        self.play_sound()
+        self.play_response()
 
     
     # Method for opening church website
@@ -99,7 +106,7 @@ class Assistant:
         webbrowser.open_new(self.church_url)
 
         # Play R4-P17 response
-        self.play_sound()
+        self.play_response()
 
 
     """
@@ -110,7 +117,7 @@ class Assistant:
     def create_file(self):
 
         # Play R4-P17 response
-        self.play_sound()
+        self.play_response()
 
         # Initialize file
         with open("somefile.txt", "w") as f:
@@ -123,7 +130,7 @@ class Assistant:
     def edit_file(self):
 
         # Play R4-P17 response
-        self.play_sound()
+        self.play_response()
 
         # Print astromech translation
         print("\nJack says:", "What would you like to add?\n")
@@ -162,25 +169,20 @@ class Assistant:
 
                 # State the model didn't recognize the audio
                 print("\nJack says:", "I didn't understand you! Please try again!")
-                droid_res = AudioSegment.from_wav("./sound_effects/p17_command.wav")
-                play(droid_res)
-                # self.speaker.say("I didn't understand you! Please try again!")
-                # self.speaker.runAndWait()
+                self.play_command()
 
 
     # Method for deleting file
     def delete_file(self):
 
         # Play R4-P17 response
-        self.play_sound()
+        self.play_response()
 
         if os.path.exists("somefile.txt"):
             os.remove("somefile.txt")
         else:
             print("\nJack says:", "The file doesn't exist")
-            droid_res = AudioSegment.from_wav("./sound_effects/p17_command.wav")
-            play(droid_res)
-            # self.speaker.say("The file doesn't exist")
+            self.play_command()
     
 
     # Method for run_assistant
@@ -212,7 +214,7 @@ class Assistant:
                         # Play .WAV file
                         droid_greet = AudioSegment.from_wav("./sound_effects/p17_greet.wav")
                         play(droid_greet)
-                        print("\nJack says:", "I'm awake!\n")
+                        print("\nJack says:", "I'm listening!\n")
 
                         # Get the command
                         audio = self.recognizer.listen(mic)
@@ -245,12 +247,9 @@ class Assistant:
                                     
                                     # Respond...
                                     print("\nJack says:", response + '\n')
-                                    # self.speaker.say(response)
-                                    # self.speaker.runAndWait()
 
                                     # Play R4-P17 response
-                                    droid_res = AudioSegment.from_wav("./sound_effects/p17_command.wav")
-                                    play(droid_res)
+                                    self.play_command()
 
 
                             # Reset color
