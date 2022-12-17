@@ -168,8 +168,8 @@ class Assistant:
                     text = self.recognizer.recognize_google(audio)
                     text = text.lower()
 
-                    # Initialize file
-                    with open("somefile.txt", "w") as f:
+                    # Initialize file and set to "append"
+                    with open("somefile.txt", "a") as f:
 
                         # Write to the file
                         f.write(text, '\n')
