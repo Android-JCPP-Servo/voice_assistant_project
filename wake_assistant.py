@@ -21,6 +21,11 @@ class Assistant:
     
     # Provide simple constructor
     def __init__(self):
+
+        # Create URLs
+        self.work_url = 'https://cyberlandr.a2hosted.com/web'
+        self.music_url = 'https://www.youtube.com/'
+        self.church_url = 'https://www.lds.org/'
     
         # Initialize recognizer with speech recognition
         self.recognizer = speech_recognition.Recognizer()
@@ -38,7 +43,7 @@ class Assistant:
             "youtube": self.open_youtube,
             "church": self.open_church,
         }
-        self.assistant = GenericAssistant("assistants.json", intent_methods=mappings)
+        self.assistant = GenericAssistant("./intents/assistants.json", intent_methods=mappings)
         self.assistant.train_model()
 
         # Implement graphical interface
@@ -60,34 +65,34 @@ class Assistant:
     # Method for opening specific typical workday links
     def open_work(self):
 
+        # Open CyberLandr website
+        webbrowser.open_new(self.work_url)
+
         # Play R4-P17 response
         droid_res = AudioSegment.from_wav("./sound_effects/p17_res.wav")
         play(droid_res)
-
-        # Open CyberLandr website
-        webbrowser.open('https://cyberlandr.a2hosted.com/web')
 
 
     # Method for opening YouTube
     def open_youtube(self):
+        
+        # Open YouTube
+        webbrowser.open(self.music_url, new=0, autoraise=True)
 
         # Play R4-P17 response
         droid_res = AudioSegment.from_wav("./sound_effects/p17_res.wav")
         play(droid_res)
-
-        # Open YouTube
-        webbrowser.open('https://www.youtube.com/')
 
     
     # Method for opening church website
     def open_church(self):
+    
+        # Open church website
+        webbrowser.open(self.church_url, new=0, autoraise=True)
 
         # Play R4-P17 response
         droid_res = AudioSegment.from_wav("./sound_effects/p17_res.wav")
         play(droid_res)
-
-        # Open church website
-        webbrowser.open('https://www.lds.org/')
 
 
     """
