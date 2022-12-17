@@ -26,6 +26,7 @@ class Assistant:
         self.work_url = 'https://cyberlandr.a2hosted.com/web'
         self.music_url = 'https://www.youtube.com/'
         self.church_url = 'https://www.lds.org/'
+        self.stonks_url = 'https://portfolio.primerica.com/'
     
         # Initialize recognizer with speech recognition
         self.recognizer = speech_recognition.Recognizer()
@@ -42,6 +43,7 @@ class Assistant:
             "work": self.open_work,
             "youtube": self.open_youtube,
             "church": self.open_church,
+            "stonks": self.open_stonks,
         }
         self.assistant = GenericAssistant("./intents/assistants.json", intent_methods=mappings)
         self.assistant.train_model()
@@ -118,6 +120,16 @@ class Assistant:
     
         # Open church website
         webbrowser.open_new(self.church_url)
+
+        # Play R4-P17 response
+        self.play_response()
+    
+
+    # Method for showing stonks
+    def open_stonks(self):
+
+        # Open Stonks
+        webbrowser.open_new(self.stonks_url)
 
         # Play R4-P17 response
         self.play_response()

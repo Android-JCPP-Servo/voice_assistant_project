@@ -21,6 +21,11 @@
             "responses": []
         },
         {
+            "tag": "stonks",
+            "patterns": ["Show me my stonks", "What are my stonks?"],
+            "responses": []
+        },
+        {
             "tag": "star wars",
             "patterns": ["What is Star Wars?", "Tell me about Star Wars"],
             "responses": ["Star Wars is Andy's favorite movie series. You should watch it if you haven't already!"]
