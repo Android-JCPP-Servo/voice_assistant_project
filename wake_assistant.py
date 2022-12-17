@@ -61,6 +61,13 @@ class Assistant:
     """
     Method for playing audio to simplify Separation of Concerns
     """
+    def play_greeting(self):
+
+        # Play R4-P17 greeting
+        droid_greet = AudioSegment.from_wav("./sound_effects/p17_greet.wav")
+        play(droid_greet)
+    
+
     def play_response(self):
 
         # Play R4-P17 response
@@ -73,6 +80,13 @@ class Assistant:
         # Play R4-P17 command
         droid_res = AudioSegment.from_wav("./sound_effects/p17_command.wav")
         play(droid_res)
+    
+
+    def play_goodbye(self):
+
+        # Play R4-P17 goodbye
+        droid_bye = AudioSegment.from_wav("./sound_effects/p17_bye.wav")
+        play(droid_bye)
 
 
     """
@@ -212,8 +226,7 @@ class Assistant:
                         self.label.config(fg="red")
 
                         # Play .WAV file
-                        droid_greet = AudioSegment.from_wav("./sound_effects/p17_greet.wav")
-                        play(droid_greet)
+                        self.play_greeting()
                         print("\nJack says:", "I'm listening!\n")
 
                         # Get the command
@@ -227,9 +240,8 @@ class Assistant:
                         if text == "stop":
 
                             # Quit the program
-                            droid_bye = AudioSegment.from_wav("./sound_effects/p17_bye.wav")
-                            play(droid_bye)
-                            print("\nJack says:", "Goodbye!\n") # Print droid translation
+                            print("\nJack says:", "Goodbye!\n")
+                            self.play_goodbye()
                             self.root.destroy()
                             sys.exit(0)
 
