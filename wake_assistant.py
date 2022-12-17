@@ -77,7 +77,7 @@ class Assistant:
     def open_youtube(self):
         
         # Open YouTube
-        webbrowser.open(self.music_url, new=0, autoraise=True)
+        webbrowser.open_new(self.music_url)
 
         # Play R4-P17 response
         droid_res = AudioSegment.from_wav("./sound_effects/p17_res.wav")
@@ -88,7 +88,7 @@ class Assistant:
     def open_church(self):
     
         # Open church website
-        webbrowser.open(self.church_url, new=0, autoraise=True)
+        webbrowser.open_new(self.church_url)
 
         # Play R4-P17 response
         droid_res = AudioSegment.from_wav("./sound_effects/p17_res.wav")
