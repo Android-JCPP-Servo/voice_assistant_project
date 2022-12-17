@@ -2,52 +2,113 @@
     "intents": [
         {
             "tag": "greeting",
-            "patterns": ["Howdy", "Hello", "Sup?", "Hi", "How are you doing?"],
-            "responses": ["Hello, Sir!", "Howdy!", "What can I do for you?"]
+            "patterns": [
+                "Howdy", 
+                "Hello", 
+                "Sup?", 
+                "Hi", 
+                "How are you doing?",
+                "What's up?"
+            ],
+            "responses": [
+                "Hello, Sir!", 
+                "Howdy!", 
+                "What can I do for you?"
+            ]
         },
         {
             "tag": "work",
-            "patterns": ["Take me to work", "Open up work for me", "Pull up work"],
+            "patterns": [
+                "Take me to work", 
+                "Open up work for me", 
+                "Pull up work",
+                "Let's get to work!",
+                "Gotta get to work!",
+                "Bill's got something for me to do"
+            ],
             "responses": []
         },
         {
             "tag": "youtube",
-            "patterns": ["Pull up some music", "Open YouTube", "Let's listen to YouTube"],
+            "patterns": [
+                "Pull up some music", 
+                "Open YouTube", 
+                "Let's listen to YouTube",
+                "What music should I listen to today?",
+                "What fun music is on today?",
+                "How about some good music?"
+            ],
             "responses": []
         },
         {
             "tag": "church",
-            "patterns": ["Go to church", "Let's go to church", "Gotta pay my tithing!"],
+            "patterns": [
+                "Go to church", 
+                "Let's go to church", 
+                "Gotta pay my tithing!",
+                "Take me to church, please!",
+                "Church bells are ringing",
+                "Bishop asked me to do something"
+            ],
             "responses": []
         },
         {
             "tag": "stonks",
-            "patterns": ["Show me my stonks", "What are my stonks?"],
+            "patterns": [
+                "Show me my stonks", 
+                "What are my stonks?",
+                "How are my stonks looking?",
+                "How's the Stock Market?",
+                "I hope my stonks have improved!",
+                "Pull up my stonks, please!"
+            ],
             "responses": []
         },
         {
             "tag": "chrome",
-            "patterns": ["Open browser", "Open Chrome", "Go to Chrome", "Go to the Internet"],
+            "patterns": [
+                "Open browser", 
+                "Open Chrome", 
+                "Go to Chrome", 
+                "Go to the Internet",
+                "Open a new browser session",
+                "Please open a new window"
+            ],
             "responses": []
         },
         {
             "tag": "star wars",
-            "patterns": ["What is Star Wars?", "Tell me about Star Wars"],
+            "patterns": [
+                "What is Star Wars?", 
+                "Tell me about Star Wars"
+            ],
             "responses": ["Star Wars is Andy's favorite movie series. You should watch it if you haven't already!"]
         },
         {
             "tag": "file",
-            "patterns": ["Create a file", "Write my file", "Type a new file", "Create new file"],
+            "patterns": [
+                "Create a file", 
+                "Write my file", 
+                "Type a new file", 
+                "Create new file"
+            ],
             "responses": []
         },
         {
             "tag": "edit",
-            "patterns": ["Edit a file", "Add text to file", "I want to write more to my file"],
+            "patterns": [
+                "Edit a file", 
+                "Add text to file", 
+                "I want to write more to my file"
+            ],
             "responses": []
         },
         {
             "tag": "delete",
-            "patterns": ["Delete a file", "Delete my file"],
+            "patterns": [
+                "Delete a file", 
+                "Delete my file"
+            ],
             "responses": []
         }
     ]

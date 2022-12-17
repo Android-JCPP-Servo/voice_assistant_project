@@ -27,6 +27,7 @@ class Assistant:
         self.music_url = 'https://www.youtube.com/'
         self.church_url = 'https://www.lds.org/'
         self.stonks_url = 'https://portfolio.primerica.com/'
+        self.chrome_url = 'https://www.google.com'
     
         # Initialize recognizer with speech recognition
         self.recognizer = speech_recognition.Recognizer()
@@ -103,6 +104,7 @@ class Assistant:
         webbrowser.open_new(self.work_url)
 
         # Play R4-P17 response
+        print("\nJack says:", "Good luck at work today!\n")
         self.play_response()
 
 
@@ -113,6 +115,7 @@ class Assistant:
         webbrowser.open_new(self.music_url)
 
         # Play R4-P17 response
+        print("\nJack says:", "Grabbing music from YouTube now...\n")
         self.play_response()
 
     
@@ -123,6 +126,7 @@ class Assistant:
         webbrowser.open_new(self.church_url)
 
         # Play R4-P17 response
+        print("\nJack says:", "Taking you to church...\n")
         self.play_response()
     
 
@@ -133,6 +137,7 @@ class Assistant:
         webbrowser.open_new(self.stonks_url)
 
         # Play R4-P17 response
+        print("\nJack says:", "Pulling up your stonks...\n")
         self.play_response()
     
 
@@ -140,9 +145,10 @@ class Assistant:
     def open_chrome(self):
 
         # Open Stonks
-        webbrowser.open_new()
+        webbrowser.open_new(self.chrome_url)
 
         # Play R4-P17 response
+        print("\nJack says:", "Opening Chrome now!\n")
         self.play_response()
 
 
@@ -205,7 +211,7 @@ class Assistant:
                 self.recognizer = speech_recognition.Recognizer()
 
                 # State the model didn't recognize the audio
-                print("\nJack says:", "I didn't understand you! Please try again!")
+                print("\nJack says:", "I didn't understand you! Please try again!\n")
                 self.play_command()
 
 
@@ -294,6 +300,9 @@ class Assistant:
 
                 # Deactivate program
                 self.label.config(fg="black")
+                # State the model didn't recognize the audio
+                print("\nJack says:", "I didn't understand you! Please try again!\n")
+                self.play_command()
                 continue
 
 # Create instance of assistant
