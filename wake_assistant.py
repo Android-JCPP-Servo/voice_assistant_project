@@ -3,6 +3,7 @@ import os
 import sys
 import threading
 import tkinter as tk
+import webbrowser
 
 # Import external modules
 import speech_recognition
@@ -32,7 +33,9 @@ class Assistant:
         mappings = {
             "file": self.create_file,
             "edit": self.edit_file,
-            "delete": self.delete_file
+            "delete": self.delete_file,
+            "work": self.open_work,
+            "youtube": self.open_youtube,
         }
         self.assistant = GenericAssistant("assistants.json", intent_methods=mappings)
         self.assistant.train_model()
@@ -54,13 +57,14 @@ class Assistant:
     """
     
     # Method for opening specific typical workday links
-    def work_assistant(self):
+    def open_work(self):
 
         # Play R4-P17 response
         droid_res = AudioSegment.from_wav("./sound_effects/p17_res.wav")
         play(droid_res)
 
-        
+        # Open CyberLandr website
+        webbrowser.open('https://cyberlandr.a2hosted.com/web')
 
 
     """
