@@ -226,8 +226,8 @@ class Assistant:
                         self.label.config(fg="red")
 
                         # Play .WAV file
-                        self.play_greeting()
                         print("\nJack says:", "I'm listening!\n")
+                        self.play_greeting()
 
                         # Get the command
                         audio = self.recognizer.listen(mic)
