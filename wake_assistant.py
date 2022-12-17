@@ -44,6 +44,7 @@ class Assistant:
             "youtube": self.open_youtube,
             "church": self.open_church,
             "stonks": self.open_stonks,
+            "chrome": self.open_chrome,
         }
         self.assistant = GenericAssistant("./intents/assistants.json", intent_methods=mappings)
         self.assistant.train_model()
@@ -130,6 +131,16 @@ class Assistant:
 
         # Open Stonks
         webbrowser.open_new(self.stonks_url)
+
+        # Play R4-P17 response
+        self.play_response()
+    
+
+    # Method for opening Chrome
+    def open_chrome(self):
+
+        # Open Stonks
+        webbrowser.open_new()
 
         # Play R4-P17 response
         self.play_response()
