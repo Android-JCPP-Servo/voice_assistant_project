@@ -36,6 +36,7 @@ class Assistant:
             "delete": self.delete_file,
             "work": self.open_work,
             "youtube": self.open_youtube,
+            "church": self.open_church,
         }
         self.assistant = GenericAssistant("assistants.json", intent_methods=mappings)
         self.assistant.train_model()
@@ -65,7 +66,7 @@ class Assistant:
 
         # Open CyberLandr website
         webbrowser.open('https://cyberlandr.a2hosted.com/web')
-        
+
 
     # Method for opening YouTube
     def open_youtube(self):
@@ -74,8 +75,19 @@ class Assistant:
         droid_res = AudioSegment.from_wav("./sound_effects/p17_res.wav")
         play(droid_res)
 
-        # Open CyberLandr website
+        # Open YouTube
         webbrowser.open('https://www.youtube.com/')
+
+    
+    # Method for opening church website
+    def open_church(self):
+
+        # Play R4-P17 response
+        droid_res = AudioSegment.from_wav("./sound_effects/p17_res.wav")
+        play(droid_res)
+
+        # Open church website
+        webbrowser.open('https://www.lds.org/')
 
 
     """
