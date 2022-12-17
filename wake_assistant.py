@@ -65,6 +65,17 @@ class Assistant:
 
         # Open CyberLandr website
         webbrowser.open('https://cyberlandr.a2hosted.com/web')
+        
+
+    # Method for opening YouTube
+    def open_youtube(self):
+
+        # Play R4-P17 response
+        droid_res = AudioSegment.from_wav("./sound_effects/p17_res.wav")
+        play(droid_res)
+
+        # Open CyberLandr website
+        webbrowser.open('https://www.youtube.com/')
 
 
     """
