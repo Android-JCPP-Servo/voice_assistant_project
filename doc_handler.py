@@ -64,6 +64,16 @@ def listen_to_audio():
 
 # Method for writing new text to a file
 def write_to_file(text):
+
+    """
+    TODO:
+    1. Place IF statements within open() method
+    2. Add checker for "comma"
+    3. Add checker for "enter"
+    4. Add checker for "exclamation point"
+    ...
+    """
+
     # Check if text ends with "period"...
     if text.endswith("period"):
         # Remove "period" from text

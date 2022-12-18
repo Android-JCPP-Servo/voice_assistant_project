@@ -39,10 +39,18 @@ def send_test():
     send_email(my_email, my_password, test_emails, em, context)
 
 # Method for sending negative message
-# def no_meeting():
+def no_meeting():
+    """
+    TODO:
+    1. Add email functionality to send negative message
+    """
 
 # Method for sending affirmative message
-# def yes_meeting():
+def yes_meeting():
+    """
+    TODO:
+    1. Add email functionality to send affirmative message
+    """
 
 # Method for sending email through SMTP
 def send_email(my_email, my_password, receivers, em, context):
