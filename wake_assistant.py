@@ -9,9 +9,13 @@ import webbrowser
 import speech_recognition
 import pyttsx3 as tts
 
-# Sound player
-from pydub import AudioSegment
-from pydub.playback import play
+# Sound player functions
+# from pydub import AudioSegment
+# from pydub.playback import play
+from play_sounds import play_greeting, play_response, play_command, play_goodbye
+
+# Email sender modules
+from ward_council_email import test_email
 
 # Import custom modules
 from neuralintents import GenericAssistant
@@ -46,6 +50,9 @@ class Assistant:
             "church": self.open_church,
             "stonks": self.open_stonks,
             "chrome": self.open_chrome,
+            "test email": test_email,
+            # "not meeting": no_meeting,
+            # "are meeting": yes_meeting
         }
         self.assistant = GenericAssistant("./intents/assistants.json", intent_methods=mappings)
         self.assistant.train_model()
@@ -61,37 +68,6 @@ class Assistant:
         # Set main loop
         self.root.mainloop()
 
-    
-    """
-    Method for playing audio to simplify Separation of Concerns
-    """
-    def play_greeting(self):
-
-        # Play R4-P17 greeting
-        droid_greet = AudioSegment.from_wav("./sound_effects/p17_greet.wav")
-        play(droid_greet)
-    
-
-    def play_response(self):
-
-        # Play R4-P17 response
-        droid_res = AudioSegment.from_wav("./sound_effects/p17_res.wav")
-        play(droid_res)
-    
-
-    def play_command(self):
-
-        # Play R4-P17 command
-        droid_res = AudioSegment.from_wav("./sound_effects/p17_command.wav")
-        play(droid_res)
-    
-
-    def play_goodbye(self):
-
-        # Play R4-P17 goodbye
-        droid_bye = AudioSegment.from_wav("./sound_effects/p17_bye.wav")
-        play(droid_bye)
-
 
     """
     Methods for handling workday tasks
@@ -105,7 +81,7 @@ class Assistant:
 
         # Play R4-P17 response
         print("\nJack says:", "Good luck at work today!\n")
-        self.play_response()
+        play_response()
 
 
     # Method for opening YouTube
@@ -116,7 +92,7 @@ class Assistant:
 
         # Play R4-P17 response
         print("\nJack says:", "Grabbing music from YouTube now...\n")
-        self.play_response()
+        play_response()
 
     
     # Method for opening church website
@@ -127,7 +103,7 @@ class Assistant:
 
         # Play R4-P17 response
         print("\nJack says:", "Taking you to church...\n")
-        self.play_response()
+        play_response()
     
 
     # Method for showing stonks
@@ -138,7 +114,7 @@ class Assistant:
 
         # Play R4-P17 response
         print("\nJack says:", "Pulling up your stonks...\n")
-        self.play_response()
+        play_response()
     
 
     # Method for opening Chrome
@@ -149,7 +125,7 @@ class Assistant:
 
         # Play R4-P17 response
         print("\nJack says:", "Opening Chrome now!\n")
-        self.play_response()
+        play_response()
 
 
     """
@@ -160,7 +136,7 @@ class Assistant:
     def create_file(self):
 
         # Play R4-P17 response
-        self.play_response()
+        play_response()
 
         # Initialize file
         with open("somefile.txt", "w") as f:
@@ -173,7 +149,7 @@ class Assistant:
     def edit_file(self):
 
         # Play R4-P17 response
-        self.play_response()
+        play_response()
 
         # Print astromech translation
         print("\nJack says:", "What would you like to add?\n")
@@ -212,20 +188,20 @@ class Assistant:
 
                 # State the model didn't recognize the audio
                 print("\nJack says:", "I didn't understand you! Please try again!\n")
-                self.play_command()
+                play_command()
 
 
     # Method for deleting file
     def delete_file(self):
 
         # Play R4-P17 response
-        self.play_response()
+        play_response()
 
         if os.path.exists("somefile.txt"):
             os.remove("somefile.txt")
         else:
             print("\nJack says:", "The file doesn't exist")
-            self.play_command()
+            play_command()
     
 
     # Method for run_assistant
@@ -256,7 +232,7 @@ class Assistant:
 
                         # Play .WAV file
                         print("\nJack says:", "I'm listening!\n")
-                        self.play_greeting()
+                        play_greeting()
 
                         # Get the command
                         audio = self.recognizer.listen(mic)
@@ -270,7 +246,7 @@ class Assistant:
 
                             # Quit the program
                             print("\nJack says:", "Goodbye!\n")
-                            self.play_goodbye()
+                            play_goodbye()
                             self.root.destroy()
                             sys.exit(0)
 
@@ -290,7 +266,7 @@ class Assistant:
                                     print("\nJack says:", response + '\n')
 
                                     # Play R4-P17 response
-                                    self.play_command()
+                                    play_command()
 
 
                             # Reset color
@@ -300,9 +276,6 @@ class Assistant:
 
                 # Deactivate program
                 self.label.config(fg="black")
-                # State the model didn't recognize the audio
-                print("\nJack says:", "I didn't understand you! Please try again!\n")
-                self.play_command()
                 continue
 
 # Create instance of assistant
