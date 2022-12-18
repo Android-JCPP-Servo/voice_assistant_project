@@ -3,16 +3,16 @@ import os
 import sys
 import threading
 import tkinter as tk
-import webbrowser
 
 # Import external modules
 import speech_recognition
 import pyttsx3 as tts
 
 # Sound player functions
-# from pydub import AudioSegment
-# from pydub.playback import play
 from play_sounds import play_greeting, play_response, play_command, play_goodbye
+
+# Open links modules
+from open_links import open_work, open_youtube, open_church, open_stonks, open_chrome
 
 # Email sender modules
 from ward_council_email import test_email
@@ -25,13 +25,6 @@ class Assistant:
     
     # Provide simple constructor
     def __init__(self):
-
-        # Create URLs
-        self.work_url = 'https://cyberlandr.a2hosted.com/web'
-        self.music_url = 'https://www.youtube.com/'
-        self.church_url = 'https://www.lds.org/'
-        self.stonks_url = 'https://portfolio.primerica.com/'
-        self.chrome_url = 'https://www.google.com'
     
         # Initialize recognizer with speech recognition
         self.recognizer = speech_recognition.Recognizer()
@@ -45,11 +38,11 @@ class Assistant:
             "file": self.create_file,
             "edit": self.edit_file,
             "delete": self.delete_file,
-            "work": self.open_work,
-            "youtube": self.open_youtube,
-            "church": self.open_church,
-            "stonks": self.open_stonks,
-            "chrome": self.open_chrome,
+            "work": open_work,
+            "youtube": open_youtube,
+            "church": open_church,
+            "stonks": open_stonks,
+            "chrome": open_chrome,
             "test email": test_email,
             # "not meeting": no_meeting,
             # "are meeting": yes_meeting
@@ -67,65 +60,6 @@ class Assistant:
 
         # Set main loop
         self.root.mainloop()
-
-
-    """
-    Methods for handling workday tasks
-    """
-    
-    # Method for opening specific typical workday links
-    def open_work(self):
-
-        # Open CyberLandr website
-        webbrowser.open_new(self.work_url)
-
-        # Play R4-P17 response
-        print("\nJack says:", "Good luck at work today!\n")
-        play_response()
-
-
-    # Method for opening YouTube
-    def open_youtube(self):
-        
-        # Open YouTube
-        webbrowser.open_new(self.music_url)
-
-        # Play R4-P17 response
-        print("\nJack says:", "Grabbing music from YouTube now...\n")
-        play_response()
-
-    
-    # Method for opening church website
-    def open_church(self):
-    
-        # Open church website
-        webbrowser.open_new(self.church_url)
-
-        # Play R4-P17 response
-        print("\nJack says:", "Taking you to church...\n")
-        play_response()
-    
-
-    # Method for showing stonks
-    def open_stonks(self):
-
-        # Open Stonks
-        webbrowser.open_new(self.stonks_url)
-
-        # Play R4-P17 response
-        print("\nJack says:", "Pulling up your stonks...\n")
-        play_response()
-    
-
-    # Method for opening Chrome
-    def open_chrome(self):
-
-        # Open Stonks
-        webbrowser.open_new(self.chrome_url)
-
-        # Play R4-P17 response
-        print("\nJack says:", "Opening Chrome now!\n")
-        play_response()
 
 
     """
