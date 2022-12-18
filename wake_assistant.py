@@ -14,8 +14,11 @@ from play_sounds import play_greeting, play_response, play_command, play_goodbye
 # Open links modules
 from open_links import open_work, open_youtube, open_church, open_stonks, open_chrome
 
+# File handling functions
+from doc_handler import create_file, edit_file, delete_file
+
 # Email sender modules
-from ward_council_email import test_email
+from ward_council_email import send_test
 
 # Import custom modules
 from neuralintents import GenericAssistant
@@ -26,20 +29,17 @@ class Assistant:
     def __init__(self):
         # Initialize recognizer with speech recognition
         self.recognizer = speech_recognition.Recognizer()
-        # Initialize speaker
-        self.speaker = tts.init()
-        self.speaker.setProperty("rate", 150)
         # Initialize assistant
         mappings = {
-            "file": self.create_file,
-            "edit": self.edit_file,
-            "delete": self.delete_file,
+            "file": create_file,
+            "edit": edit_file,
+            "delete": delete_file,
             "work": open_work,
             "youtube": open_youtube,
             "church": open_church,
             "stonks": open_stonks,
             "chrome": open_chrome,
-            "test email": test_email,
+            "test email": send_test,
             # "not meeting": no_meeting,
             # "are meeting": yes_meeting
         }
