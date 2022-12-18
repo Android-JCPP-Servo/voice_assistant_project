@@ -77,6 +77,18 @@
             "responses": []
         },
         {
+            "tag": "test email",
+            "patterns": [
+                "Please send my test email",
+                "Let's try a test email",
+                "Can you send me a test email?",
+                "Send me a test email",
+                "Can you test the email sender?",
+                "I'd like to test the email sender"
+            ],
+            "responses": []
+        },
+        {
             "tag": "star wars",
             "patterns": [
                 "What is Star Wars?", 
