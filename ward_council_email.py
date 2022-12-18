@@ -17,46 +17,35 @@ test_emails = ['theultimatemicrowave@gmail.com', 'anderson.stewart@streamit.live
 # Create Ward Council list
 ward_council = []
 
-
 # Method for sending email messages
 def test_email():
-    
     # Play R4-P17 response
     print("\nJack says:", "Sending email to your clients now...\n")
     play_response()
-
     # Set subject and body of email message
     subject = "New Test Email Message with separate functions using Jack"
     body = """
     This is a new test email using my new homemade voice assistant, Jack!
     """
-
     # Initialize email message
     em = EmailMessage()
     em['From'] = my_email
     em['To'] = test_emails
     em['Subject'] = subject
     em.set_content(body)
-
     # Set security
     context = ssl.create_default_context()
-
     # Pass data to sender handler
     send_email(my_email, my_password, test_emails, em, context)
-
 
 # Method for sending negative message
 # def no_meeting():
 
-
-
 # Method for sending affirmative message
 # def yes_meeting():
 
-
 # Method for sending email through SMTP
 def send_email(my_email, my_password, receivers, em, context):
-
     # Send email
     with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
         # Login
