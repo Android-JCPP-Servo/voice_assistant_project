@@ -12,13 +12,13 @@ from play_sounds import play_greeting, play_response, play_command, play_goodbye
 # Global variables for each email
 my_email = 'astewart1138@gmail.com'
 my_password = os.environ.get("jack_pass")
-test_email = 'anderson.stewart@streamit.live'
+# test_email = 'theultimatemicrowave@gmail.com'
 test_emails = ['theultimatemicrowave@gmail.com', 'anderson.stewart@streamit.live']
 # Create Ward Council list
 ward_council = []
 
 # Method for sending email messages
-def test_email():
+def send_test():
     # Play R4-P17 response
     print("\nJack says:", "Sending email to your clients now...\n")
     play_response()
