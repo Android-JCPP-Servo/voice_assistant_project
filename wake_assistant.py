@@ -8,20 +8,13 @@ import tkinter as tk
 import speech_recognition
 import pyttsx3 as tts
 
-# Sound player functions
-from play_sounds import play_greeting, play_response, play_command, play_goodbye
-
-# Open links modules
-from open_links import open_work, open_youtube, open_church, open_stonks, open_chrome
-
-# File handling functions
-from doc_handler import create_file, edit_file, delete_file
-
-# Email sender modules
-from ward_council_email import send_test
-
 # Import custom modules
 from neuralintents import GenericAssistant
+from play_sounds import play_greeting, play_response, play_command, play_goodbye
+from open_links import open_work, open_youtube, open_church, open_stonks, open_chrome
+from doc_handler import create_file, edit_file, delete_file
+from ward_council_email import send_test
+from workday_assistant import start_workday
 
 # Create an assistant class
 class Assistant:
@@ -34,6 +27,7 @@ class Assistant:
             "file": create_file,
             "edit": edit_file,
             "delete": delete_file,
+            "work day": start_workday,
             "work": open_work,
             "youtube": open_youtube,
             "church": open_church,
