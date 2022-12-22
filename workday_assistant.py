@@ -2,7 +2,6 @@
 import webbrowser
 
 # Import custom modules
-from open_links import open_work, open_youtube, open_stonks
 from play_sounds import play_response, play_command
 
 """
