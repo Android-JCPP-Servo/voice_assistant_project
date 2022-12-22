@@ -89,6 +89,18 @@
             "responses": []
         },
         {
+            "tag": "work day",
+            "patterns": [
+                "I'm starting my work day!",
+                "I'm starting my workday!",
+                "I'm starting work right now",
+                "Let's get this party started!",
+                "Today's a busy one!",
+                "I wonder what today will bring"
+            ],
+            "responses": []
+        },
+        {
             "tag": "star wars",
             "patterns": [
                 "What is Star Wars?", 
