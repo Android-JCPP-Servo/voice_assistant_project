@@ -11,10 +11,7 @@ import pyttsx3 as tts
 # Import custom modules
 from neuralintents import GenericAssistant
 from play_sounds import play_greeting, play_response, play_command, play_goodbye
-from open_links import open_work, open_youtube, open_church, open_stonks, open_chrome
-from doc_handler import create_file, edit_file, delete_file
-from ward_council_email import send_test
-from workday_assistant import start_workday
+from mappings import pass_mappings
 
 # Create an assistant class
 class Assistant:
@@ -22,21 +19,9 @@ class Assistant:
     def __init__(self):
         # Initialize recognizer with speech recognition
         self.recognizer = speech_recognition.Recognizer()
+        # Grab the mappings from pass_mappings()
+        mappings = pass_mappings
         # Initialize assistant
-        mappings = {
-            "file": create_file,
-            "edit": edit_file,
-            "delete": delete_file,
-            "work day": start_workday,
-            "work": open_work,
-            "youtube": open_youtube,
-            "church": open_church,
-            "stonks": open_stonks,
-            "chrome": open_chrome,
-            "test email": send_test,
-            # "not meeting": no_meeting,
-            # "are meeting": yes_meeting
-        }
         self.assistant = GenericAssistant("./intents/assistants.json", intent_methods=mappings)
         self.assistant.train_model()
         # Implement graphical interface
