@@ -14,13 +14,23 @@ def play_greeting():
 
 # Method for playing R4-P17 response
 def play_response():
-    droid_res = AudioSegment.from_wav("./sound_effects/p17_res.wav")
+    droid_res = AudioSegment.from_wav("./sound_effects/p17_process_1.wav")
     play(droid_res)
+
+# Method for playing R4-P17 response #2
+def play_response_2():
+    droid_res_2 = AudioSegment.from_wav("./sound_effects/p17_process_2.wav")
+    play(droid_res_2)
 
 # Method for playing R4-P17 command
 def play_command():
     droid_command = AudioSegment.from_wav("./sound_effects/p17_command.wav")
     play(droid_command)
+
+# Method for playing R4-P17 rejection
+def play_rejection():
+    droid_reject = AudioSegment.from_wav('./sound_effects/p17_reject.wav')
+    play(droid_reject)
 
 # Method for playing R4-P17 goodbye
 def play_goodbye():
