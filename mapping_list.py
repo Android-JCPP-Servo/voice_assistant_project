@@ -8,6 +8,7 @@ from open_links import open_work, open_youtube, open_church, open_stonks, open_c
 from doc_handler import create_file, edit_file, delete_file
 from ward_council_email import send_test
 from workday_assistant import start_workday
+from open_app import open_app
 
 # Set the mappings object for Jack
 mappings = {
@@ -22,7 +23,8 @@ mappings = {
     "chrome": open_chrome,
     "test email": send_test,
     # "not meeting": no_meeting,
-    # "are meeting": yes_meeting
+    # "are meeting": yes_meeting,
+    "open app": open_app,
 }
 
 # Pass the mappings object back to Jack
