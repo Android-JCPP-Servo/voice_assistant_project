@@ -11,7 +11,7 @@ import pyttsx3 as tts
 # Import custom modules
 from neuralintents import GenericAssistant
 from play_sounds import play_greeting, play_response, play_command, play_goodbye
-from mappings import pass_mappings
+from mapping_list import pass_mappings
 
 # Create an assistant class
 class Assistant:
@@ -19,8 +19,8 @@ class Assistant:
     def __init__(self):
         # Initialize recognizer with speech recognition
         self.recognizer = speech_recognition.Recognizer()
-        # Grab the mappings from pass_mappings()
-        mappings = pass_mappings
+        # Set the mappings object for Jack
+        mappings = pass_mappings()
         # Initialize assistant
         self.assistant = GenericAssistant("./intents/assistants.json", intent_methods=mappings)
         self.assistant.train_model()
