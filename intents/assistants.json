@@ -101,6 +101,18 @@
             "responses": []
         },
         {
+            "tag": "open app",
+            "patterns": [
+                "Open an app for me, please!",
+                "I need an app opened",
+                "Let's open a new app!",
+                "Let's play a game!",
+                "I need to go shopping!",
+                "I need to search something..."
+            ],
+            "responses": []
+        },
+        {
             "tag": "star wars",
             "patterns": [
                 "What is Star Wars?", 
