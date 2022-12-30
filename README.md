@@ -13,3 +13,7 @@ This project is **not** to be used for commercial or entrepreneurial purposes. I
 2. [R4-P17 Voice (1)](https://www.youtube.com/watch?v=dTFWEHW_REs)
 3. [R4-P17 Voice (2)](https://www.youtube.com/watch?v=4cejt0-UtOU)
 4. [R4-P17 Voice (3)](https://www.youtube.com/watch?v=ehNJ-sULpsM)
+
+### Photos
+![Jack - Default State](./images/jack_default.jpg)
+![Jack - Active State](./images/jack_active.jpg)
