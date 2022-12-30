@@ -1,8 +1,9 @@
 # Import internal modules
-import os
+import os, pyglet
 import sys
 import threading
 import tkinter as tk
+from tkinter.font import Font
 
 # Import external modules
 import speech_recognition
@@ -10,7 +11,7 @@ import pyttsx3 as tts
 
 # Import custom modules
 from neuralintents import GenericAssistant
-from play_sounds import play_greeting, play_response, play_command, play_goodbye
+from play_sounds import play_greeting, play_command, play_goodbye
 from mapping_list import pass_mappings
 
 # Create an assistant class
@@ -26,8 +27,16 @@ class Assistant:
         self.assistant.train_model()
         # Implement graphical interface
         self.root = tk.Tk()
-        self.label = tk.Label(text="💿", font=("Arial", 120, "bold"))
-        self.label.pack()
+        self.root.configure(bg='black')
+        thiagaFont = Font(
+            family="THIAGA DEMO",
+            size=42,
+            weight="bold"
+        )
+        self.label_1 = tk.Label(text="💿", font=("Arial", 120, "bold"), bg='black', fg='white')
+        self.label_2 = tk.Label(text="JACK", font=(thiagaFont), bg='black', fg='white')
+        self.label_1.pack()
+        self.label_2.pack()
         # Listen for the audio
         threading.Thread(target=self.run_assistant).start()
         # Set main loop
@@ -50,7 +59,8 @@ class Assistant:
                     # Activate only if specific text in thread
                     if "hey jack" in text:
                         # Set color
-                        self.label.config(fg="red")
+                        self.label_1.config(fg="navy")
+                        self.label_2.config(fg="navy")
                         # Play .WAV file
                         print("\nJack says:", "I'm listening!\n")
                         play_greeting()
@@ -79,10 +89,12 @@ class Assistant:
                                     # Play R4-P17 response
                                     play_command()
                             # Reset color
-                            self.label.config(fg="black")
+                            self.label_1.config(fg="white")
+                            self.label_2.config(fg="white")
             except:
                 # Deactivate program
-                self.label.config(fg="black")
+                self.label_1.config(fg="white")
+                self.label_2.config(fg="white")
                 continue
 
 # Create instance of assistant
