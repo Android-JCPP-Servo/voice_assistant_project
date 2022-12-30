@@ -7,7 +7,6 @@ Methods for handling workday tasks
 import webbrowser
 
 # Import sound responses
-# Sound player imports
 from play_sounds import play_response
 
 # Daily URLs
