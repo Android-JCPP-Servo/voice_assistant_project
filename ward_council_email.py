@@ -1,5 +1,6 @@
 # Import OS modules
 import os
+import datetime
 
 # Email sender modules
 from email.message import EmailMessage
@@ -11,32 +12,41 @@ from play_sounds import play_greeting, play_response, play_command, play_goodbye
 
 # Global variables for each email
 my_email = 'astewart1138@gmail.com'
+# My return address
+my_return = 'Andersen Stewart <astewart1138@gmail.com>'
 my_password = os.environ.get("jack_pass")
-# test_email = 'theultimatemicrowave@gmail.com'
-test_emails = ['theultimatemicrowave@gmail.com', 'anderson.stewart@streamit.live']
+test_emails = ['theultimatemicrowave@gmail.com', 'astewart1138@gmail.com']
 # Create Ward Council list
 ward_council = []
+
+# Get date value for Sunday (this email is usually sent on Saturday, so I want Jack to list the date for the next day)
+nextDayDate = datetime.datetime.today() + datetime.timedelta(days=1)
+nextDayDate = nextDayDate.strftime('%m/%d/%Y') # Set date to usual format
+nextDayDate = str(nextDayDate) # Set date to string
 
 # Method for sending email messages
 def send_test():
     # Play R4-P17 response
     print("\nJack says:", "Sending email to your clients now...\n")
     play_response()
-    # Set subject and body of email message
-    subject = "New Test Email Message with separate functions using Jack"
-    body = """
-    This is a new test email using my new homemade voice assistant, Jack!
-    """
-    # Initialize email message
-    em = EmailMessage()
-    em['From'] = my_email
-    em['To'] = test_emails
-    em['Subject'] = subject
-    em.set_content(body)
-    # Set security
-    context = ssl.create_default_context()
-    # Pass data to sender handler
-    send_email(my_email, my_password, test_emails, em, context)
+    try:
+        # Set subject and body of email message
+        subject = "Ward Council @ 8:30am - " + nextDayDate
+        body = """
+        This is a text email for Ward Council
+        """
+        # Initialize email message
+        em = EmailMessage()
+        em['From'] = my_return
+        em['To'] = test_emails
+        em['Subject'] = subject
+        em.set_content(body)
+        # Set security
+        context = ssl.create_default_context()
+        # Pass data to sender handler
+        send_email(my_email, my_password, test_emails, em, context)
+    except Exception as e:
+        print("\nJack says:", "I had an error here:", e, '\n')
 
 # Method for sending negative message
 def no_meeting():
