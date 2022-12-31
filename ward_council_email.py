@@ -2,6 +2,10 @@
 import os
 import datetime
 
+# DOTENV modules and methods
+from dotenv import load_dotenv
+load_dotenv()
+
 # Email sender modules
 from email.message import EmailMessage
 import ssl # For additional security
@@ -10,14 +14,21 @@ import smtplib
 # Sound player imports
 from play_sounds import play_greeting, play_response, play_command, play_goodbye
 
+# Get emails
+from read_csv_test import get_emails
+
 # Global variables for each email
 my_email = 'astewart1138@gmail.com'
 # My return address
 my_return = 'Andersen Stewart <astewart1138@gmail.com>'
-my_password = os.environ.get("jack_pass")
+my_password = os.getenv('JACK_PASS')
 test_emails = ['theultimatemicrowave@gmail.com', 'astewart1138@gmail.com']
-# Create Ward Council list
-ward_council = []
+
+# Create Ward Council list ONLY if password exists
+if my_password is not None:
+    ward_council = get_emails() # Create council list
+else:
+    ward_council = [] # Create empty list
 
 # Get date value for Sunday (this email is usually sent on Saturday, so I want Jack to list the date for the next day)
 nextDayDate = datetime.datetime.today() + datetime.timedelta(days=1)
