@@ -7,7 +7,7 @@ This module is used to store and keep track of all mapped methods for SOC
 from open_links import open_work, open_youtube, open_church, open_stonks, open_chrome
 # from open_links import open_chrome
 from doc_handler import create_file, edit_file, delete_file
-from ward_council_email import send_test
+from ward_council_email import send_test, no_meeting, yes_meeting
 from workday_assistant import start_workday
 from open_app import open_app
 
@@ -23,8 +23,8 @@ mappings = {
     "stonks": open_stonks,
     "chrome": open_chrome,
     "test email": send_test,
-    # "not meeting": no_meeting,
-    # "are meeting": yes_meeting,
+    "not meeting": no_meeting,
+    "are meeting": yes_meeting,
     "open app": open_app,
 }
 

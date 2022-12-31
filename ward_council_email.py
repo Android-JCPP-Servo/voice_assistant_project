@@ -31,7 +31,8 @@ else:
     ward_council = [] # Create empty list
 
 # Get date value for Sunday (this email is usually sent on Saturday, so I want Jack to list the date for the next day)
-nextDayDate = datetime.datetime.today() + datetime.timedelta(days=1)
+todayDate = datetime.datetime.today()
+nextDayDate = todayDate + datetime.timedelta(days=1)
 nextDayDate = nextDayDate.strftime('%m/%d/%Y') # Set date to usual format
 nextDayDate = str(nextDayDate) # Set date to string
 
@@ -42,9 +43,9 @@ def send_test():
     play_response()
     try:
         # Set subject and body of email message
-        subject = "Ward Council @ 8:30am - " + nextDayDate
+        subject = "Test Email with Jack - " + todayDate
         body = """
-        This is a text email for Ward Council
+        This is a text email with my personal voice assistant, Jack!
         """
         # Initialize email message
         em = EmailMessage()
@@ -61,17 +62,63 @@ def send_test():
 
 # Method for sending negative message
 def no_meeting():
-    """
-    TODO:
-    1. Add email functionality to send negative message
-    """
+    # Play R4-P17 response
+    print("\nJack says:", "Sending email to your clients now...\n")
+    play_response()
+    try:
+        # Set subject and body of email message
+        subject = "No Ward Council - " + nextDayDate
+        body = """
+        Howdy Ward Council,
+
+        There is no Ward Council tomorrow morning.
+        
+        See y'all at church!
+
+        Andersen
+        """
+        # Initialize email message
+        em = EmailMessage()
+        em['From'] = my_return
+        em['To'] = test_emails
+        em['Subject'] = subject
+        em.set_content(body)
+        # Set security
+        context = ssl.create_default_context()
+        # Pass data to sender handler
+        send_email(my_email, my_password, test_emails, em, context)
+    except Exception as e:
+        print("\nJack says:", "I had an error here:", e, '\n')
 
 # Method for sending affirmative message
 def yes_meeting():
-    """
-    TODO:
-    1. Add email functionality to send affirmative message
-    """
+    # Play R4-P17 response
+    print("\nJack says:", "Sending email to your clients now...\n")
+    play_response()
+    try:
+        # Set subject and body of email message
+        subject = "Ward Council - " + nextDayDate + " @ 8:30am"
+        body = """
+        Howdy Ward Council,
+
+        We'll be having Ward Council at 8:30am tomorrow morning.
+        
+        See y'all then!
+
+        Andersen
+        """
+        # Initialize email message
+        em = EmailMessage()
+        em['From'] = my_return
+        em['To'] = test_emails
+        em['Subject'] = subject
+        em.set_content(body)
+        # Set security
+        context = ssl.create_default_context()
+        # Pass data to sender handler
+        send_email(my_email, my_password, test_emails, em, context)
+    except Exception as e:
+        print("\nJack says:", "I had an error here:", e, '\n')
 
 # Method for sending email through SMTP
 def send_email(my_email, my_password, receivers, em, context):
