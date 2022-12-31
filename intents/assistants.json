@@ -92,11 +92,11 @@
             "tag": "not meeting",
             "patterns": [
                 "We are not meeting on Sunday",
-                "There is no Ward Council on Sunday",
-                "Please tell the Ward Council we are not meeting on Sunday",
+                "There is no council on Sunday",
+                "Please tell the council we are not meeting on Sunday",
                 "There is not a meeting Sunday morning",
-                "Bishop said there is no Ward Council on Sunday",
-                "This Sunday is an off-day for the Ward Council"
+                "Bishop said there is no council on Sunday",
+                "This Sunday is an off-day for the council"
             ],
             "responses": []
         },
@@ -104,11 +104,11 @@
             "tag": "are meeting",
             "patterns": [
                 "We are meeting Sunday morning at 8:30 AM",
-                "We are having Ward Council on Sunday",
-                "Please tell the Ward Council we are meeting on Sunday",
+                "Let the council know we are meeting on Sunday",
+                "Please tell the council we are meeting on Sunday",
                 "There is a meeting Sunday morning",
-                "Bishop said we have Ward Council on Sunday",
-                "The Ward Council is going to meet tomorrow morning"
+                "Bishop said we have council on Sunday",
+                "The council is going to meet tomorrow morning"
             ],
             "responses": []
         },
