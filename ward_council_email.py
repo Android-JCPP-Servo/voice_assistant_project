@@ -12,10 +12,14 @@ import ssl # For additional security
 import smtplib
 
 # Sound player imports
-from play_sounds import play_greeting, play_response, play_command, play_goodbye
+from play_sounds import play_command, play_response, play_response_2, play_rejection
 
 # Get emails
 from read_csv_test import get_emails
+
+# Listen for my commands
+import speech_recognition
+from listen import listen
 
 # Global variables for each email
 my_email = 'astewart1138@gmail.com'
@@ -59,6 +63,33 @@ def send_test():
         send_email(my_email, my_password, test_emails, em, context)
     except Exception as e:
         print("\nJack says:", "I had an error here:", e, '\n')
+
+# Method for confirming my request
+def confirm_no():
+    # R4-P17, please confirm with me before sending...
+    print("\nJack says:", "Are you sure you want me to tell the Ward Council to stay home?")
+    play_response_2()
+    # Listen for confirmation...
+    recognizer = speech_recognition.Recognizer()
+    done = False
+    while not done:
+        try:
+            # Set microphone
+            with speech_recognition.Microphone() as mic:
+                # Get text
+                text = listen(recognizer, mic)
+                if 'yes' in text:
+                    no_meeting()
+                    done = True
+                else:
+                    print("\nJack says:", "Alright, I'll forget about it")
+                    play_rejection()
+                    done = True
+        except speech_recognition.UnknownValueError:
+            recognizer = speech_recognition.Recognizer()
+            # State the model didn't recognize the audio
+            print("\nJack says:", "I didn't understand you! Please try again!\n")
+            play_command()
 
 # Method for sending negative message
 def no_meeting():
