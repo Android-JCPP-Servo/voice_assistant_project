@@ -59,8 +59,8 @@ class Assistant:
                     # Activate only if specific text in thread
                     if "hey jack" in text:
                         # Set color
-                        self.label_1.config(fg="navy")
-                        self.label_2.config(fg="navy")
+                        self.label_1.config(fg="dodgerblue")
+                        self.label_2.config(fg="dodgerblue")
                         # Play .WAV file
                         print("\nJack says:", "I'm listening!\n")
                         play_greeting()
