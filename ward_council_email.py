@@ -64,7 +64,7 @@ def send_test():
     except Exception as e:
         print("\nJack says:", "I had an error here:", e, '\n')
 
-# Method for confirming my request
+# Method for confirming my no-meeting request
 def confirm_no():
     # R4-P17, please confirm with me before sending...
     print("\nJack says:", "Are you sure you want me to tell the Ward Council to stay home?")
@@ -82,7 +82,7 @@ def confirm_no():
                     no_meeting()
                     done = True
                 else:
-                    print("\nJack says:", "Alright, I'll forget about it")
+                    print("\nJack says:", "Alright, I'll forget about it.")
                     play_rejection()
                     done = True
         except speech_recognition.UnknownValueError:
@@ -120,6 +120,33 @@ def no_meeting():
         send_email(my_email, my_password, test_emails, em, context)
     except Exception as e:
         print("\nJack says:", "I had an error here:", e, '\n')
+
+# Method for confirming my yes-meeting request
+def confirm_yes():
+    # Jack, place confirm with me before sending...
+    print("\nJack says:", "You want me to tell the Ward Council to come?")
+    play_response_2()
+    # Listen for confirmation...
+    recognizer = speech_recognition.Recognizer()
+    done = False
+    while not done:
+        try:
+            # Set microphone
+            with speech_recognition.Microphone() as mic:
+                # Get text
+                text = listen(recognizer, mic)
+                if 'yes' in text:
+                    yes_meeting()
+                    done = True
+                else:
+                    print("\nJack says:", "Alright, never mind, then.")
+                    play_rejection()
+                    done = True
+        except speech_recognition.UnknownValueError:
+            recognizer = speech_recognition.Recognizer()
+            # State the model didn't recognize the audio
+            print("\nJack says:", "I didn't understand you! Please try again!\n")
+            play_command()
 
 # Method for sending affirmative message
 def yes_meeting():
