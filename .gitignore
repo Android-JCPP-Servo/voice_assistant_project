@@ -1,0 +1,11 @@
+# DIRECTORIES
+__pycache__/
+
+# SPECIFIC FILES
+sunday.txt
+read_csv_test.py
+
+# ENVIRONMENT
+.env
+*/.env
+**/.env
