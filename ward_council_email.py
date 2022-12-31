@@ -63,7 +63,7 @@ def send_test():
 # Method for sending negative message
 def no_meeting():
     # Play R4-P17 response
-    print("\nJack says:", "Sending email to your clients now...\n")
+    print("\nJack says:", "Telling your clients to stay home...\n")
     play_response()
     try:
         # Set subject and body of email message
@@ -93,7 +93,7 @@ def no_meeting():
 # Method for sending affirmative message
 def yes_meeting():
     # Play R4-P17 response
-    print("\nJack says:", "Sending email to your clients now...\n")
+    print("\nJack says:", "Letting your clients know to come tomorrow morning...\n")
     play_response()
     try:
         # Set subject and body of email message
