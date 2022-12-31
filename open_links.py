@@ -3,6 +3,11 @@ OPEN LINKS
 
 Methods for handling workday tasks
 """
+# DOTENV modules and methods
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 # Import webbrowser module
 import webbrowser
 
@@ -10,11 +15,11 @@ import webbrowser
 from play_sounds import play_response
 
 # Daily URLs
-work_url = 'https://cyberlandr.a2hosted.com/web'
-music_url = 'https://www.youtube.com/'
-church_url = 'https://www.lds.org/'
-stonks_url = 'https://portfolio.primerica.com/'
-chrome_url = 'https://www.google.com'
+work_url = os.getenv('WORK_URL')
+music_url = os.getenv('MUSIC_URL')
+church_url = os.getenv('CHURCH_URL')
+stonks_url = os.getenv('STONKS_URL')
+chrome_url = os.getenv('CHROME_URL')
 
 # Method for opening specific typical workday links
 def open_work():
