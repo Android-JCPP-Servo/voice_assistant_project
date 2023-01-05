@@ -13,6 +13,7 @@ import pyttsx3 as tts
 from neuralintents import GenericAssistant
 from play_sounds import play_greeting, play_command, play_goodbye
 from mapping_list import pass_mappings
+from open_links import split_sentence
 
 # Create an assistant class
 class Assistant:
@@ -80,14 +81,18 @@ class Assistant:
                         else:
                             # Check if text is not empty
                             if text is not None:
-                                # Set response
-                                response = self.assistant.request(text)
-                                # If the response is not empty
-                                if response is not None:
-                                    # Respond...
-                                    print("\nJack says:", response + '\n')
-                                    # Play R4-P17 response
-                                    play_command()
+                                # Pass text to handler to look for a match
+                                match = split_sentence(text)
+                                # If there's no match...
+                                if not match:
+                                    # Set response
+                                    response = self.assistant.request(text)
+                                    # If the response is not empty
+                                    if response is not None:
+                                        # Respond...
+                                        print("\nJack says:", response + '\n')
+                                        # Play R4-P17 response
+                                        play_command()
                             # Reset color
                             self.label_1.config(fg="white")
                             self.label_2.config(fg="white")

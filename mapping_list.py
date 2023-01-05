@@ -4,8 +4,6 @@ This module is used to store and keep track of all mapped methods for SOC
 """
 
 # Import all custom modules
-from open_links import open_work, open_youtube, open_church, open_stonks, open_chrome
-# from open_links import open_chrome
 from doc_handler import create_file, edit_file, delete_file
 from ward_council_email import send_test, confirm_no, confirm_yes
 from workday_assistant import start_workday
@@ -17,11 +15,6 @@ mappings = {
     "edit": edit_file,
     "delete": delete_file,
     "work day": start_workday,
-    "work": open_work,
-    "youtube": open_youtube,
-    "church": open_church,
-    "stonks": open_stonks,
-    "chrome": open_chrome,
     "test email": send_test,
     "not meeting": confirm_no,
     "are meeting": confirm_yes,
