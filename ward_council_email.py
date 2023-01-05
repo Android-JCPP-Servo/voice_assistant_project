@@ -111,13 +111,13 @@ def no_meeting():
         # Initialize email message
         em = EmailMessage()
         em['From'] = my_return
-        em['To'] = test_emails
+        em['To'] = ward_council
         em['Subject'] = subject
         em.set_content(body)
         # Set security
         context = ssl.create_default_context()
         # Pass data to sender handler
-        send_email(my_email, my_password, test_emails, em, context)
+        send_email(my_email, my_password, ward_council, em, context)
     except Exception as e:
         print("\nJack says:", "I had an error here:", e, '\n')
 
@@ -168,13 +168,13 @@ def yes_meeting():
         # Initialize email message
         em = EmailMessage()
         em['From'] = my_return
-        em['To'] = test_emails
+        em['To'] = ward_council
         em['Subject'] = subject
         em.set_content(body)
         # Set security
         context = ssl.create_default_context()
         # Pass data to sender handler
-        send_email(my_email, my_password, test_emails, em, context)
+        send_email(my_email, my_password, ward_council, em, context)
     except Exception as e:
         print("\nJack says:", "I had an error here:", e, '\n')
 
