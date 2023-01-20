@@ -1,5 +1,5 @@
 # Import internal modules
-import os, pyglet
+import os
 import sys
 import threading
 import tkinter as tk
